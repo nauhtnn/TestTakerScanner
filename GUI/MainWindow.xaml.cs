@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Timers;
 
 namespace GUI
 {
@@ -45,17 +46,32 @@ namespace GUI
 
         private void PostImage_Click(object sender, RoutedEventArgs e)
         {
+            if(!System.IO.File.Exists(filePath.Text))
+            {
+                MessageBox.Show("Please check the image file path.");
+                return;
+            }
             MyLib.Class1.PostImageToGetURL(filePath.Text);
+            System.Threading.Thread.Sleep(5000);
         }
 
         private void GetText_Click(object sender, RoutedEventArgs e)
         {
             MyLib.Class1.GetImageText();
             MyMessage.Text = MyLib.Class2.ScanText(MyLib.Class1.imgText.ToString()).ToString();
-            int i = 0;
-            while (System.IO.File.Exists(i.ToString() + ".txt"))
-                ++i;
-            System.IO.File.WriteAllText(i.ToString() + ".txt", MyMessage.Text);
+            if(MyMessage.Text.Length < 20)
+            {
+                MessageBox.Show("Please try again.");
+                return;
+            }
+            try
+            {
+                System.IO.File.WriteAllText(MyMessage.Text.Substring(0, 3) + ".txt", MyMessage.Text);
+            }
+            catch(System.IO.IOException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

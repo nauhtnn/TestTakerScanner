@@ -19,10 +19,6 @@ namespace MyLib
             // Find matches.
             MatchCollection matches = rx.Matches(s);
 
-            // Report the number of matches found.
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("{0} test takers:\n", matches.Count);
-
             // Report on each match.
             TTInfo[] vInfo = new TTInfo[matches.Count];
             int i = 0;
@@ -56,7 +52,10 @@ namespace MyLib
                     SearchDate("[0-9]+", t, ref vInfo[i]);
                     int year = int.Parse(vInfo[i].Birthday);
                     if (year < 1950 || 2012 < year)
+                    {
                         vInfo[i] = new TTInfo();
+                        vInfo[i].Birthday = year.ToString();
+                    }
                 }
                 ++i;
             }
@@ -72,12 +71,15 @@ namespace MyLib
                 ++i;
             }
 
-            foreach(TTInfo info in vInfo)
+
+            // Report the number of matches found.
+            StringBuilder sb = new StringBuilder();
+            foreach (TTInfo info in vInfo)
             {
                 info.CleanUp();
                 sb.Append(info.ToString() + "\r\n");
             }
-
+            sb.Append(matches.Count + " found.");
             return sb;
         }
 
