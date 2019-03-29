@@ -46,13 +46,16 @@ namespace GUI
         private void PostImage_Click(object sender, RoutedEventArgs e)
         {
             MyLib.Class1.PostImageToGetURL(filePath.Text);
-            MyMessage.Text = "finished post";
         }
 
         private void GetText_Click(object sender, RoutedEventArgs e)
         {
             MyLib.Class1.GetImageText();
-            MyMessage.Text = MyLib.Class1.imgText.ToString();
+            MyMessage.Text = MyLib.Class2.ScanText(MyLib.Class1.imgText.ToString()).ToString();
+            int i = 0;
+            while (System.IO.File.Exists(i.ToString() + ".txt"))
+                ++i;
+            System.IO.File.WriteAllText(i.ToString() + ".txt", MyMessage.Text);
         }
     }
 }

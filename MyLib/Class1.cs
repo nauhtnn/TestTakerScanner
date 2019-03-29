@@ -106,7 +106,6 @@ namespace MyLib
             // Request parameters
             queryString["language"] = "en";
             queryString["detectOrientation"] = "false";
-            //var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/ocr?" + queryString;
             var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/recognizeText?mode=Printed";
 
             HttpResponseMessage response;

@@ -10,7 +10,7 @@
         <TextBox x:Name="filePath" Height="29" Margin="94,10,100,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button Click="FileOpen_Click" Content="Browse Image" HorizontalAlignment="Left" Height="28" Margin="94,56,0,0" VerticalAlignment="Top" Width="104"/>
         <ScrollViewer Margin="0,108,0,0">
-            <TextBlock x:Name="MyMessage" HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="772"/>
+            <TextBlock x:Name="MyMessage" TextWrapping="Wrap"/>
         </ScrollViewer>
         <Button Content="Post Image" Click="PostImage_Click" HorizontalAlignment="Left" Height="28" Margin="312,56,0,0" VerticalAlignment="Top" Width="110"/>
         <Button Content="Get Text" Click="GetText_Click" HorizontalAlignment="Left" Height="28" Margin="484,56,0,0" VerticalAlignment="Top" Width="121"/>
