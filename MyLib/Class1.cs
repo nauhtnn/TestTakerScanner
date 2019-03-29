@@ -28,11 +28,14 @@ namespace MyLib
             // Request parameters
             queryString["mode"] = "Printed";
             var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/recognizeText?" + queryString;
+            //var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/ocr?language=en&detectOrientation=false";
 
             HttpResponseMessage response;
 
             // Request body
             byte[] byteData = GetImageAsByteArray(imgPath);
+
+            textURL = string.Empty;
 
             using (var content = new ByteArrayContent(byteData))
             {
@@ -49,6 +52,8 @@ namespace MyLib
 
         public static async void GetImageText()
         {
+            if (textURL.Length == 0)
+                return;
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
@@ -57,15 +62,20 @@ namespace MyLib
             var x = await client.GetAsync(textURL);
             var y = x.Content.ReadAsStringAsync().Result;
             JToken parent = JToken.Parse(y).Last;
-            while (parent.First == parent.Last)
-                parent = parent.First;
-            JToken i = parent.First;
             imgText.Clear();
-            while (i != parent.Last)
+            while (parent.HasValues && parent.First == parent.Last)
+                parent = parent.First;
+            if (parent.HasValues)
             {
-                imgText.Append(i.Value<string>("text") + "\n");
-                i = i.Next;
+                JToken i = parent.First;
+                while (i != parent.Last)
+                {
+                    imgText.Append(i.Value<string>("text") + "\n");
+                    i = i.Next;
+                }
             }
+            else
+                imgText.Append("Running");
         }
 
         /// <summary>
@@ -84,5 +94,33 @@ namespace MyLib
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
         }
+
+        public static async void MakeRequest(string filePath)
+        {
+            var client = new HttpClient();
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "26b4d99217f645818a4d2e049f3865fc");
+
+            // Request parameters
+            queryString["language"] = "en";
+            queryString["detectOrientation"] = "false";
+            //var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/ocr?" + queryString;
+            var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/recognizeText?mode=Printed";
+
+            HttpResponseMessage response;
+
+            // Request body
+            byte[] byteData = GetImageAsByteArray(filePath);
+
+            using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                response = await client.PostAsync(uri, content);
+            }
+
+        }
+
     }
 }

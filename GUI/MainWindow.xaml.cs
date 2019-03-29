@@ -46,10 +46,6 @@ namespace GUI
         private void PostImage_Click(object sender, RoutedEventArgs e)
         {
             MyLib.Class1.PostImageToGetURL(filePath.Text);
-            while(MyLib.Class1.textURL.Length == 0)
-            {
-                System.Threading.Thread.Sleep(1000);
-            }
             MyMessage.Text = "finished post";
         }
 
