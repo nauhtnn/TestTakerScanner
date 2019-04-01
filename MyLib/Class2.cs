@@ -46,7 +46,11 @@ namespace MyLib
             {
                 SearchDate("[0-9]+-[0-9]+-[0-9]+", t, ref vInfo[i]);
                 if(vInfo[i].Birthday_idx < 0)
+                    SearchDate("[0-9]+/[0-9]+/[0-9]+", t, ref vInfo[i]);
+                if (vInfo[i].Birthday_idx < 0)
                     SearchDate("[0-9]+-[0-9]+", t, ref vInfo[i]);
+                if (vInfo[i].Birthday_idx < 0)
+                    SearchDate("[0-9]+/[0-9]+", t, ref vInfo[i]);
                 if (vInfo[i].Birthday_idx < 0)
                 {
                     SearchDate("[0-9]+", t, ref vInfo[i]);

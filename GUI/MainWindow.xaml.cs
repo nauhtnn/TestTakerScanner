@@ -52,21 +52,23 @@ namespace GUI
                 return;
             }
             MyLib.Class1.PostImageToGetURL(filePath.Text);
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(10000);
         }
 
         private void GetText_Click(object sender, RoutedEventArgs e)
         {
             MyLib.Class1.GetImageText();
-            MyMessage.Text = MyLib.Class2.ScanText(MyLib.Class1.imgText.ToString()).ToString();
-            if(MyMessage.Text.Length < 20)
+            string text = MyLib.Class2.ScanText(MyLib.Class1.imgText.ToString()).ToString();
+            if (text.Length < 20)
             {
                 MessageBox.Show("Please try again.");
                 return;
             }
+            string fileName = text.Substring(0, 3).Replace('\t', '_') + ".txt";
+            MyMessage.Text = "OK, please check the text file " + fileName;
             try
             {
-                System.IO.File.WriteAllText(MyMessage.Text.Substring(0, 3) + ".txt", MyMessage.Text);
+                System.IO.File.WriteAllText(fileName, text);
             }
             catch(System.IO.IOException ex)
             {
