@@ -39,7 +39,7 @@ namespace MyLib
             s = s.Replace('|', ' ');
             s = s.Trim();
             while (-1 < s.IndexOf("  "))
-                s.Replace("  ", " ");
+                s = s.Replace("  ", " ");
         }
 
         override public string ToString()
