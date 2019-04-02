@@ -13,7 +13,6 @@
             <TextBlock x:Name="MyMessage" TextWrapping="Wrap"/>
         </ScrollViewer>
         <Button Content="Post Image" Click="PostImage_Click" HorizontalAlignment="Left" Height="28" Margin="312,56,0,0" VerticalAlignment="Top" Width="110"/>
-        <Button Content="Get Text" Click="GetText_Click" HorizontalAlignment="Left" Height="28" Margin="484,56,0,0" VerticalAlignment="Top" Width="121"/>
-
+        <!--<Button Content="Get Text" Click="GetText_Click" HorizontalAlignment="Left" Height="28" Margin="484,56,0,0" VerticalAlignment="Top" Width="121"/>-->
     </Grid>
 </Window>

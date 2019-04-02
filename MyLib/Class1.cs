@@ -40,11 +40,11 @@ namespace MyLib
             using (var content = new ByteArrayContent(byteData))
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await client.PostAsync(uri, content);
+                response = client.PostAsync(uri, content).Result;
             }
 
             // Asynchronously get the JSON response.
-            string contentString = await response.Content.ReadAsStringAsync();
+            string contentString = response.Content.ReadAsStringAsync().Result;
             var operation_location = response.Headers.GetValues("Operation-Location").GetEnumerator();
             operation_location.MoveNext();
             textURL = operation_location.Current;
@@ -59,7 +59,7 @@ namespace MyLib
 
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "26b4d99217f645818a4d2e049f3865fc");
-            var x = await client.GetAsync(textURL);
+            var x = client.GetAsync(textURL).Result;
             var y = x.Content.ReadAsStringAsync().Result;
             JToken parent = JToken.Parse(y).Last;
             imgText.Clear();
@@ -94,32 +94,5 @@ namespace MyLib
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
         }
-
-        public static async void MakeRequest(string filePath)
-        {
-            var client = new HttpClient();
-            var queryString = HttpUtility.ParseQueryString(string.Empty);
-
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "26b4d99217f645818a4d2e049f3865fc");
-
-            // Request parameters
-            queryString["language"] = "en";
-            queryString["detectOrientation"] = "false";
-            var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/recognizeText?mode=Printed";
-
-            HttpResponseMessage response;
-
-            // Request body
-            byte[] byteData = GetImageAsByteArray(filePath);
-
-            using (var content = new ByteArrayContent(byteData))
-            {
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await client.PostAsync(uri, content);
-            }
-
-        }
-
     }
 }

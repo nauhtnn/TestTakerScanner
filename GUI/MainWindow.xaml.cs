@@ -21,6 +21,8 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        string fileName = "fileName1.txt";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,8 +36,8 @@ namespace GUI
             switch (result)
             {
                 case System.Windows.Forms.DialogResult.OK:
-                    var file = fileDialog.FileName;
-                    filePath.Text = file;
+                    filePath.Text = fileDialog.FileName;
+                    fileName = System.IO.Path.GetFileName(filePath.Text) + ".txt";
                     break;
                 case System.Windows.Forms.DialogResult.Cancel:
                 default:
@@ -52,19 +54,21 @@ namespace GUI
                 return;
             }
             MyLib.Class1.PostImageToGetURL(filePath.Text);
-            System.Threading.Thread.Sleep(10000);
+            System.Threading.Thread.Sleep(15000);
+            GetText_Click(null, null);
         }
 
         private void GetText_Click(object sender, RoutedEventArgs e)
         {
-            MyLib.Class1.GetImageText();
-            string text = MyLib.Class2.ScanText(MyLib.Class1.imgText.ToString()).ToString();
-            if (text.Length < 20)
+            string text = string.Empty;
+            while(text.Length < 20)
             {
-                MessageBox.Show("Please try again.");
-                return;
+                System.Threading.Thread.Sleep(10000);
+                MyLib.Class1.GetImageText();
+                text = MyLib.Class2.ScanText(MyLib.Class1.imgText.ToString()).ToString();
             }
-            string fileName = text.Substring(0, 3).Replace('\t', '_') + ".txt";
+            while (System.IO.File.Exists(fileName))
+                fileName = fileName + ".txt";
             MyMessage.Text = "OK, please check the text file " + fileName;
             try
             {
