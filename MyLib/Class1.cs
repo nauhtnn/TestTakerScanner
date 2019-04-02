@@ -61,8 +61,8 @@ namespace MyLib
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "26b4d99217f645818a4d2e049f3865fc");
             var x = client.GetAsync(textURL).Result;
             var y = x.Content.ReadAsStringAsync().Result;
+            //System.IO.File.WriteAllText("json.txt", y);
             JToken parent = JToken.Parse(y).Last;
-            imgText.Clear();
             while (parent.HasValues && parent.First == parent.Last)
                 parent = parent.First;
             if (parent.HasValues)
@@ -70,6 +70,7 @@ namespace MyLib
                 JToken i = parent.First;
                 while (i != parent.Last)
                 {
+                    var t = i.Value<JArray>("boundingBox");
                     imgText.Append(i.Value<string>("text") + "\n");
                     i = i.Next;
                 }
