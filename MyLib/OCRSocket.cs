@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Net.Http;
 using System.Web;
+using System.Collections;
 
 namespace MyLib
 {
@@ -65,15 +67,23 @@ namespace MyLib
             JToken parent = JToken.Parse(y).Last;
             while (parent.HasValues && parent.First == parent.Last)
                 parent = parent.First;
+            TextLineList ocrText = new TextLineList();
             if (parent.HasValues)
             {
                 JToken i = parent.First;
                 while (i != parent.Last)
                 {
                     var t = i.Value<JArray>("boundingBox");
-                    imgText.Append(i.Value<string>("text") + "\n");
+                    TextRun run = new TextRun();
+                    run.TopLeftY += (int)t[1];
+                    run.BottomLeftY += (int)t[7];
+                    run.TopLeftX = (int)t[0];
+                    run.Value = i.Value<string>("text");
+                    ocrText.Add(run);
+                    //imgText.Append(i.Value<string>("text") + "\n");
                     i = i.Next;
                 }
+                imgText.Append(ocrText.ToString());
             }
             else
                 imgText.Append("Running");
@@ -94,6 +104,103 @@ namespace MyLib
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
+        }
+    }
+
+    class TextRun : IComparable
+    {
+        public int TopLeftX, TopLeftY, BottomLeftY;
+        public string Value;
+
+        public TextRun()
+        {
+            TopLeftX = TopLeftY = BottomLeftY = 0;
+            Value = string.Empty;
+        }
+
+        public int CompareTo(object obj)
+        {
+            TextRun run = obj as TextRun;
+            if (TopLeftX == run.TopLeftX)
+                return 0;
+            else if (TopLeftX < run.TopLeftX)
+                return -1;
+            else
+                return 1;
+        }
+    }
+
+    class TextLine : IComparable
+    {
+        public int TopLeftY, BottomLeftY;
+        public ArrayList vText;
+        public TextLine()
+        {
+            TopLeftY = BottomLeftY = 0;
+            vText = new ArrayList();
+        }
+        public bool IsInlined(TextRun run)
+        {
+            int y = (run.TopLeftY + run.BottomLeftY) / 2;
+            if (BottomLeftY <= y && y <= TopLeftY)
+                return true;
+            else
+                return false;
+        }
+        public void Add(TextRun run)
+        {
+            vText.Add(run);
+            vText.Sort();
+        }
+
+        public int CompareTo(object obj)
+        {
+            TextLine line = obj as TextLine;
+            if (TopLeftY < line.BottomLeftY)
+                return -1;
+            else if (line.TopLeftY < BottomLeftY)
+                return 1;
+            else
+                throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (TextRun r in vText)
+                sb.Append(r.Value);
+            return sb.ToString();
+        }
+    }
+
+    class TextLineList
+    {
+        ArrayList vLine;
+        public TextLineList()
+        {
+            vLine = new ArrayList();
+        }
+        public void Add(TextRun run)
+        {
+            foreach (TextLine line in vLine)
+                if (line.IsInlined(run))
+                {
+                    line.Add(run);
+                    return;
+                }
+            TextLine li = new TextLine();
+            li.TopLeftY = run.TopLeftY;
+            li.BottomLeftY = run.BottomLeftY;
+            li.Add(run);
+            vLine.Add(li);
+            vLine.Sort();
+        }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (TextLine li in vLine)
+                sb.Append(li.ToString() + "\n");
+            return sb.ToString();
         }
     }
 }
