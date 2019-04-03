@@ -1,0 +1,34 @@
+A151	Tran Van Triet	02/10/1990	Thanh Hoa - Long An 8 66
+A152	Le Thi Tuyet Mai	01/06/1982	Tan An - Long An 6 67
+A153	Phong Van My	22/10/1970	Tien Giang 68
+A154	Nguyen Hoang Nam	14/12/1990	Tan An - Long An V 69
+A155	Trinh Thi Kim Nhung	25/05/1990	Chau Thanh - Tien Giang 6.5 70
+A156	Truong Thi Phung	06/11/1992	Tan An - Long An 5.5 71
+A157	Luong Thi Ngoc Suong	15/01/1983	Tan An - Long An A 72
+A158	Cai Thi My Sang	16/03/1991	Tan Thanh - Long An 73
+A159	Nguyen Thanh Tung	28/01/1991	Ben Luc - Long An 7.5 74
+A160	Truong Van Tuan	08/07/1991	Chau Thanh - Long An 7.5 75
+A161	Ho Thi Thanh Truc	31/10/1990	Thu Thura - Long An 4.5 76
+A162	Ngo Thi Thanh Thuy	29/08/1989	Thu Thua - Long An 7.5 77
+A163	Huynh Thi Thanh Thuy	16/06/1991	Thanh Hoa - Long An 8 78
+A164	Luong Hoang Thuong	05/11/1986	Chau Thanh - Long An 8.5 79
+A165	Luong Thi Thuy Van	16/10/1986	Tan An - Long An 5 80
+A166	Nguyen Thi Thuy Ai	24/11/1996	Chau Thanh-Long An 8.5 81
+A167	Nguyen Dang Hoa Lan	04/09/1997	Long An 9 82
+A168	Truong Ha Phuong	10/04/1999	Chau Thanh-Long An 6.5 83
+A169	Tran Anh Thu	15/06/1996	Long An 9 84
+A170	Ngo Thuy Tien	08/05/1996	Chau Thanh-Long An 9.5 85
+A171	Pham Thi Yen Trang	22/08/1996	Chau Thanh-Long An 8.5 86
+A172	Nguyen Thi Thanh Truc	02/07/1998	Long An 9 87
+A173	Cao Thi Thuy Van	05/01/1996	Chau Thanh-Long An 4.5 88
+A174	Ngo Thi Ngoc Yen	11/09/1998	Chau Thanh-Long An 8.5 89
+A175	Nguyen Thi Cam Huong	15/09/1991	Ben Luc - Long An 9.5 90
+A176	Nguyen Thi Ngoc Loi	14/04/1990	Can Duoc - Long An 9 91
+A177	Vo Nguyen Duy Tan	27/05/1990	Tan An - Long An 9 92
+A178	Tran Thi Thanh Thuy	25/12/1990	Thu Thura - Long An 9.5 93
+A179	Le Thi Tiet	31/03/1971	Binh Lap - Long An 9 94
+A180	Nguyen Van Tuan	27/01/1967	Binh Lop - Long An 3.5 95
+A181	Bui Thi Hai Y	15/01/1988	Tan An - Long An 5.5 96
+A182	Truong Thi Diem Phuc	29/06/1995	Long An 5.5 97
+A183	Ngo Thi Hong Phuong	01/11/1993	Long An 4.5 98
+A184	Nguyen Phude Thanh	20/03/1983	Can Giuoc-Long An

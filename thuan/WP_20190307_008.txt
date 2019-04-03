@@ -1,0 +1,34 @@
+A219	Vo Thi Cam Han	10/02/1991	Tan Thanh - Long An 34
+A220	Bui Thi Le Hoa	11/09/1991	Can Duoc - Long An 8 135
+A221	Bui Thi Diem Huong	29/08/1991	Can Duoc - Long An
+A222	Phung Hoang Kham	16/08/1989	Tan Thanh - Long An 137
+A223	Nguyen Lai Phuon Kieu 5.5	06/06/1991	Duc Hoa - Long An 4.5 138
+A224	Nguyen Thi Thien Kim	26/12/1990	Duc Hoa - Long An 5.5 139
+A225	Le Thi Hong Le	27/4/1991	Can Giuoc - Long An 7.5 140
+A226	Pham Huru Len	20/10/1985	Tan Thanh - Long An 3 141
+A227	Nguyen Thi Thuy Linh	09/12/1991	6.5 Binh Thuan 142
+A228	Tran Thi Truc Ly	02/11/1991	9 Duc Hoa - Long An 143
+A229	Nguyen Thi Thao Ngan	20/11/1991	Duc Hoa - Long An 9.5 144
+A230	Nguyen Thi Ngo	25/12/1991	Ben Luc - Long An 9.5 145
+A231	Cao Hoai Nhan	15/07/1991	Chau Thanh - Long An 146
+A232	Nguyen Tri Nhan	09/09/1990	Chau Thanh - Long An 4.5 147
+A233	Nguyen Huynh Nhu	28/07/1991	Tan Tru - Long An 6 148
+A234	Nguyen Thi My Nuong	05/1988	Tan Tru - Long An 8.5 149
+A235	Pham Thanh Phong 1989 Can Giuoc - Long An 5.5	150	VN
+A236	Nguyen Thi Hong Phuc	16/02/1991	Can Duoc - Long An 9.5 151
+A237	Nguyen Huru Phuoc	05/07/1991	Duc Hao - Long An 9.5 152
+A238	Le Thi Anh Phuong	02/05/1991	TP Ho Chi Minh Oo 153
+A239	Mai Thi Truc Phuong	22/11/1991	Tan Tru - Long An 7.5 154
+A240	Ngo Thi Thuy Quyen	15/02/1991	Can Giuoc- Long An 8.5 155
+A241	Phan Thi Be Sim	15/08/1991	Duc Hoa - Long An 7 156
+A242	Nguyen Thi Tuyet Suong	09/10/1988	Duc Hoa - Long An 9.5 157
+A243	Tran Minh Tam	28/05/1991	Moc Hoa - Long An 7.5 158
+A244	Vo Thi Thu Thao	01/10/1991	Vinh Hung - Long An 9 159
+A245	Phan Thi Le Thu	02/07/1991	Ben Luc - Long An 9.5 160
+A246	Nguyen Thi Diem Thuong	20/10/1991	Tan Thanh - Long An 10 161
+A247	Le Ngo Bich Thuy	09/10/1991	Can Giuoc - Long An 7.5 162
+A248	Nguyen Thi Mong Tiem	25/10/1991	Tan Thanh - Long An 9 163
+A249	Nguyen Thi Thuy Tien	21/08/1991	Can Giuoc - Long An 9.5 164
+A250	Nguyen Duy Tin	25/04/1991	Duc Hoa - Long An 9 165
+A251	Nguyen Vi Toan	20/04/1977	Quang Ngai 7.5 166
+A252	Nguyen Thi Kim Tram	28/08/1991	Tan An- Long An

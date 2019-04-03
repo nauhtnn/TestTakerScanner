@@ -54,12 +54,14 @@ namespace MyLib
                 {
                     SearchDate("[0-9]+", t, ref vInfo[i]);
                     int year = int.Parse(vInfo[i].Birthday);
-                    if (year < 1950 || 2012 < year)
+                    if (1950 < year && year < 2012)
                     {
                         vInfo[i] = new TTInfo();
                         vInfo[i].Birthday = year.ToString();
                     }
                 }
+                //if (vInfo[i].Birthday_idx < 0)
+                //    throw new NotSupportedException();
                 ++i;
             }
 
@@ -69,7 +71,9 @@ namespace MyLib
                 if(-1 < vInfo[i].ID_idx)
                 {
                     vInfo[i].Name = t.Substring(0, vInfo[i].Birthday_idx);
-                    vInfo[i].Birthplace = t.Substring(vInfo[i].Birthday_idx + vInfo[i].Birthday.Length + 1);
+                    int birthPlaceX = vInfo[i].Birthday_idx + vInfo[i].Birthday.Length + 1;
+                    if(birthPlaceX < t.Length)
+                        vInfo[i].Birthplace = t.Substring(birthPlaceX);
                 }
                 ++i;
             }

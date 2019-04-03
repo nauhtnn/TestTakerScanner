@@ -1,0 +1,36 @@
+A1	Nguyen Thanh Binh	02/10/1997	Can Giuoc - Long An
+A2	Tran Thi Ngoc Chau	04/01/1997	Can Giuoc - Long An
+A3	Huynh Minh Chi	13/05/1996	Can Giuoc - Long An
+A4	Nguyen Thi Hong Chien	19/07/1995	Can Giuoc - Long An
+A5	Nguyen Thi Con	1971	Can Giuoc - Long An
+A6	Kha Thi Bich Diem	15/06/1990	Can Giuoc - Long An 7
+A7	Tran Thi Kim Dieu	30/12/1989	Can Giuoc - Long An 8
+A8	Nguyen Hoang Du	31/03/1985	Can Giuoc - Long An 9
+A9	Ho Hoang Duong	19/06/1996	Ham Tan - Binh Thuan 10
+A10	Truong Thi Hong Dao 03/01/1996 Can Giuoc - Long An
+A11 Nguyen Thanh Dat	05/04/1996	Can Giuoc - Long An 12
+A12	Luu Thanh Giac	10/11/1978	Chau Thanh - Long An 13
+A13	Ngo Thi Thu Ha	22/12/1970	Can Giuoc - Long An 14
+A14	Tran Thi My Hanh	08/03/1995	Can Giuoc - Long An 15
+A15	Pham Minh Hau	03/01/1995	Can Giuoc - Long An 16
+A16	Le Thi Thu Hien	09/03/1988	Can Giuoc - Long An 17
+A17	Nguyen Thai Hoc	17/01/1995	Can Giuoc - Long An 18
+A18	Ngo Thi Ngoc Hue 1972	Can Giuoc - Long An
+A19	Luu Minh Hung	15/08/1995	Can Giuoc - Long An 20
+A20	Lam Gia Huy	31/01/1996	Can Giuoc - Long An 21
+A21	Le Thi Thanh Huyen	19/03/1996	Can Giuoc - Long An 22
+A22	Nguyen Thi Tu Huong	26/04/1996	Can Giuoc - Long An 23
+A23	Nguyen Thi Thu Huong	19/07/1996	Can Giuoc - Long An 24
+A24	Do Thi Lan Huong	03/08/1994	Can Giuoc - Long An 25
+A25	Tran Nguyen Da Thao Huong	09/12/1995	Can Giuoc - Long An 26
+A26	Nguyen Trong Kha	28/03/1997	Can Giuoc - Long An 7
+A27	Nguyen Thanh Kiet	03/10/1987	Can Giuoc - Long An 8
+A28	Nguyen Thi Thuy Kieu	02/04/1995	Can Giuoc - Long An 9
+A29	Hua Ngoc Van Lam	20/12/1996	Can Giuoc - Long An 0
+A30	Le Thi Truc Lieu	31/10/1997	Can Giuoc - Long An 1
+A31	Truong Thi Truc Linh	20/06/1995	Can Giuoc - Long An 2
+A32	Le Nhu Linh	06/08/1996	Can Giuoc - Long An 3
+A33	Nguyen Minh Loc	14/09/1994	Can Giuoc - Long An 4
+A34	Pham Thanh Luu	11/04/1995	Can Giuoc - Long An
+A35	Ngo Thi Hong Mo	31/06/1996	Can Giuoc - Long An
+A36	Ho Xuan Nen	01/01/1979	Quang Xuong - Thanh Hoa

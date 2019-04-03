@@ -7,12 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="filePath" Height="29" Margin="94,10,100,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220*"/>
+            <ColumnDefinition Width="573*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="filePath" Height="29" Margin="94,10,100,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Button Click="FileOpen_Click" Content="Browse Image" HorizontalAlignment="Left" Height="28" Margin="94,56,0,0" VerticalAlignment="Top" Width="104"/>
-        <ScrollViewer Margin="0,108,0,0">
+        <ScrollViewer Margin="0,108,0,0" Grid.ColumnSpan="2">
             <TextBlock x:Name="MyMessage" TextWrapping="Wrap"/>
         </ScrollViewer>
-        <Button Content="Post Image" Click="PostImage_Click" HorizontalAlignment="Left" Height="28" Margin="312,56,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Post Image" Click="PostImage_Click" HorizontalAlignment="Left" Height="28" Margin="92.5,56,0,0" VerticalAlignment="Top" Width="110" Grid.Column="1"/>
+        <Button Content="Post All" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="265,54,0,0" VerticalAlignment="Top" Width="115" Click="PostAll_Click"/>
         <!--<Button Content="Get Text" Click="GetText_Click" HorizontalAlignment="Left" Height="28" Margin="484,56,0,0" VerticalAlignment="Top" Width="121"/>-->
     </Grid>
 </Window>

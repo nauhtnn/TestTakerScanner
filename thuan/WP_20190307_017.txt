@@ -1,0 +1,33 @@
+A130	Nguyen Thi Thuan	1991	Duc Hoa - Long An
+A131	Nguyen Thi Hong Xuyen	02/07/1990	Can Duoc - Long An 8.5 8
+A132	Nguyen Cam Binh	20/12/1988	Tan An-Long An 9 8 3
+A133	Nguyen Thanh Hai	26/08/1985	Long An 6.5
+A134	Le Kieu Hanh	28/04/1976	Long An 5 5
+A135	Ha Ngoc Diem Hang	02/07/1991	Tan An-Long An 8.5 6
+A136	Luong Huynh Nhan Hau	21/04/1971	Binh Lap-Long An Vang Vi 37
+A137	Pham Thi Kim Loan	10/11/1966	Tan Phuroc-Tien Giang 7.5 38
+A138	Dinh Huu Loi	18/08/1990	Long An 8 39
+A139	Nguyen Thi Hanh Man	31/10/1990	Tan An-Long An 8.5 40
+A140	Le Thi Vo My	02/11/1991	Chau Thanh-Long An 8.5 41
+A141	Le Thi Kim Ngan	15/08/1989	Tan An-Long An A 42
+A142	Chau Thi Thanh Nhan	25/05/1990	Duc Hoa-Long An 9 co 143
+A143	Nguyen Thi My Nhien	10/04/1990	Can Duoc-Long An 144
+A144	Nguyen Thi Le Nuong	11/03/1976	Thu Thura-Long An 8.5 145
+A145	Tran Hoai Phuong	16/12/1990	Long An 7 146
+A146	Nguyen Thi Re	29/01/1990	Chau Thanh-Long An 8 147
+A147	Cao Thanh Thao	02/09/1990	Long An 4.5 148
+A148	Truong Thi Thanh Thuy	10/05/1989	Chau Thanh-Long An A 149
+A149	Nguyen Thi Tot	11/05/1965	Tan Tru-Long An 150
+A150	Le Thi Trang	10/04/1983	Long An 6 151
+A151	Huynh Thi Nhu Truc	17/12/1990	Tan An-Long An 9 152
+A152	Nguyen Thi Tu	03/05/1958	Tan An-Long An 8 153
+A153	Nguyen Thi Ngoc Van	12/01/1959	Chau Thanh-Long An 4 154
+A154	Vo Thi Bich Chi	02/07/1992	Tan An-Long An 8.5 155
+A155	Le Quoc Cuong	04/10/1993	Tan An-Long An 7.5 156
+A156	Tran Anh Duy	16/01/1992	Tan Tru-Long An 7.5 157
+A157	Pham Huu Duc	17/10/1993	TP Ho Chi Minh 6 158
+A158	Nguyen Van Hiep	16/04/1993	Tan An-Long An 6.5 159
+A159	Nguyen Vuong Hoang	24/03/1991	Tan An-Long An 6.5 160
+A160	Phan Thuy Linh	15/07/1992	Tan Phuroc-Tien Giang 8.5 161
+A161	Tran Hoang Minh	23/05/1993	Long An 7.5 162
+A162	Pham Thi Kim Ngoc	07/11/1991	Long An

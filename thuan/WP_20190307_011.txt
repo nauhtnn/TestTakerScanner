@@ -1,0 +1,35 @@
+A1	Nguyen Thi Kim Anh	10/04/1968	Long An
+A2	Pham Thi Be	1961	Chau Thanh - Long An
+A3	Nguyen Thanh Binh	01/10/1975	Tan Chau-Long An
+A4	Nguyen Van Binh	22/04/1955	Chau Thanh-Long An
+A5	Le Van Cac	08/10/1963	Chau Thanh-Long An
+A6	Nguyen Huru Chang	15/01/1967	Chau Thanh-Long An 3
+A7	Huynh Xuan Chieu	04/02/1964	Long An
+A8	Phan Thi Chin	02/01/1971	Chau Thanh-Long An
+A9	Kieu Minh Danh	24/10/1982	Vam Co-Long An 0
+A10	Ly Thi My Dinh 30/03/1961 Long An
+A11	Tran Thi Tuyet Hoa	18/12/1966	Long An 2
+A12	Nguyen Thi Hoang	26/12/1964	Chau Thanh-Long An 3
+A13	Lieu Thi Minh Hong	08/07/1968	Vam Co-Long An 4
+A14	Le Van Hong	10/11/1971	Chau Thanh-Long An LO 5
+A15	Nguyen Thi My Hue	14/08/1967	Chau Thanh-Long An 6
+A16	Nguyen Van Hung	26/04/1971	Long An
+A17	Huynh Thi Lan Huong	20/11/1981	TP. Ho Chi Minh 8
+A18	Do Thi My Huynh	07/10/1963	Chau Thanh-Long An 9
+A19	Tran Tuan Khai	20/02/1965	Chau Thanh-Long An 20
+A20	Nguyen Thi Hanh Kieu	23/03/1978	Duc Hoa-Long An 7. 21
+A21	Tran Thi Lan	20/09/1966	Chau Thanh-Long An 22
+A22	Tran Ba Linh	30/06/1969	Chau Thanh-Long An 9 23
+A23	Le Thi Cam Linh	06/08/1977	Chau Thanh-Long An 9 24
+A24	Chau Thi Loan	27/10/1968	Tien Giang 25
+A25	Truong Thi Truc Ly	14/03/1976	Long An oo 26
+A26	Doan Thi Ngoc Mai	20/11/1964	Chau Thanh-Long An 5. 27
+A27	Nguyen Thanh Minh	25/09/1968	Chau Thanh-Long An 8 28
+A28	Ung Van Muoi	26/04/1956	Chau Thanh-Long An 9. 29
+A29	Huynh Van Muoi	06/09/1967	Long An 30
+A30	Le Thi Hong Nga	11/06/1966	Tien Giang 31
+A31	Nguyen Thi Thanh Nga	03/06/1964	Can Giuoc-Long An 32
+A32	Nguyen Thi Ngoc Nga	27/02/1966	Chau Thanh-Long An 33
+A33	Vo Thi Bich Ngoc	26/12/1958	Long An 34
+A34	Vo Thi Nha 1968 Chau Thanh-Long An 9.	35	VN
+A35	Nguyen Thi Hoang Oanh	12/03/1980	Tan Chau-Long An

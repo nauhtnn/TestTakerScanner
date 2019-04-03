@@ -1,0 +1,33 @@
+A31	Tran Thi Thanh Tuyen	19/07/1997	Ben Luc - Long An 6.5 32
+A32	Dang Thi Kim Bong	21/03/1991	Thu Thua - Long An 9 33
+A33	Truong Thi Le Khanh	19/10/1974	Bac Giang-Ha Bac 4.5 34
+A34	Nguyen Thi Truc Linh	23/11/1992	Long An 5 35
+A35	Nguyen Thi Kim Ngan	05/04/1983	Chau Thanh - Long An 5.5 36
+A36	Chau Huynh Nhu	12/12/1990	Chau Thanh - Long An 8.5 37
+A37	Nguyen Thi Kieu Oanh	19/08/1988	Long An 5.5 38
+A38	Ly Hong Phuong	16/09/1982	Long An 7.5 39
+A39	Vo Van Thanh	13/04/1991	Long An 8 40
+A40	Mai Hai Yen	03/03/1991	Can Duoc-Long An 7.5 41
+A41	Nguyen Viet Anh	4/8/1998	Duc Hoa - Long An 7.5 42
+A42	Huynh Le Chau	2/2/1997	Duc Hoa - Long An 8.5 43
+A43	Nguyen Thi Anh Dao	1/8/1988	Ben Luc - Long An 8.5 44
+A44	Le Thi Hong Gam	16/3/1995	Duc Hoa - Long An 8.5 45
+A45	Nguyen Trong Hai	27/11/1997	Duc Hoa - Long An 9 46
+A46	Mang Thi Hanh	22/12/1986	Duc Hoa - Long An 9.5 47
+A47	Huynh Thu Hien	28/10/1997	Duc Hoa - Long An 9 48
+A48	Truong Thai Hoa	24/3/1996	Duc Hoa - Long An 9.5 49
+A49	Vo Thi Ngoc Huyen	24/5/1995	Duc Hoa - Long An 8.5 50
+A50	Bui Van Khanh	24/10/1994	Duc Hoa - Long An 6.5 51
+A51	Nguyen Thi My Linh	10/7/1995	Duc Hoa - Long An 8 52
+A52	Tran Thi Thoai Mieu //1995 Duc Hoa - Long An 8.5	53	VN
+A53	Nguyen Thi Ngoc My	16/9/1997	Duc Hoa - Long An 9.5 54
+A54	Nguyen Hoai Nam	31/10/1997	TP Ho Chi Minh 9.5 55
+A55	Mai Thi Bich Ngoc	10/10/1997	Duc Hoa - Long An 8.5 56
+A56	Pham Thi Lan Ngoc	28/5/1997	Duc Hoa - Long An 3 57
+A57	Ho Thai Nguyen	11/5/1997	Tra On - Vinh Long 8.5 58
+A58	Nguyen Thanh Nhan	9/10/1997	Duc Hoa - Long An 9.5 59
+A59	Nguyen Quynh Nhu	5/7/1997	Duc Hoa - Long An 60
+A60	Nguyen Minh Phap	14/10/1997	Duc Hoa - Long An 9.5 61
+A61	Nguyen Tan Phat	20/9/1997	Duc Hoa - Long An 6 62
+A62	Nguyen Doan Thanh Phong	26/12/1996	Duc Hoa - Long An 8 63
+A63	Vo Thi Ngoc Quyen	20/12/1995	Duc Hoa - Long An

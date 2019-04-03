@@ -1,0 +1,7 @@
+A163	Nguyen tan Tai	20/08/1991	Ben Luc-Long An 54
+A164	Nguyen Minh Tien	01/06/1993	Tan An-Long An
+A165	Nguyen Minh Truyen	27/04/1993	Tan An-Long An S
+A166	Vo Thi Tuyet Van	02/05/1993	Tan An-Long An 7
+A167	Nguyen Hoang Huy	19/03/1993	Tan An-Long An 58
+A168	Duong Thi Lan	08/09/1958	Duc Hoa-Long An
+A169	Huynh Thi Ven	30/05/1989	Thanh Hoa-Long An

@@ -1,0 +1,33 @@
+A64	Nguyen Thi Cam Tien	19/5/1995	Duc Hoa - Long An 7.5 65
+A65	Nguyen Minh Tung	3/6/1995	Duc Hoa - Long An 6 66
+A66	Tran Minh Tuyen	19/11/1993	Duc Hoa - Long An 8 67
+A67	Le Thi Thu Trang	16/5/1994	Duc Hoa - Long An 6 68
+A68	Nguyen Thi Tu Trinh	11/11/1995	TP Ho Chi Minh 6 69
+A69	Nguyen Thi Be Trong	9/9/1995	Duc Hoa - Long An 5.5 70
+A70	Nguyen Phuong Truc	3/10/1996	TP Ho Chi Minh S 71
+A71	Nguyen Chau Vu	27/8/1995	Duc Hoa - Long An 4 72
+A72	Nguyen Thi Kim Xuyen	8/4/1997	Duc Hoa - Long An 6 73
+A73	Mai Thi Ngoc Yen	8/4/1996	Duc Hoa - Long An 5 74
+A74	Le Thi Tam Binh	15/01/1996	Duc Hue - Long An 7.5 75
+A75	Mai Ngoc Dien	23/12/1996	Duc Hue - Long An 8.5 76
+A76	Nguyen Van Duan	20/01/1996	Hoa Thanh - Tay Ninh 6 77
+A77	Nguyen Quoc Huy	22/11/1996	Duc Hue - Long An 6.5 78
+A78	Le Hoang Nam	29/05/1996	Duc Hue - Long An 9 79
+A79	Nguyen Minh Nhut	07/1996	Duc Hue - Long An 3.5 80
+A80	Nguyen Thanh Thien	18/02/1996	Duc Hue - Long An 6 81
+A81	Luu Thi Kim Thoa	22/08/1996	Duc Hue - Long An 5.5 82
+A82	Tran Thi Kim Thoai	22/08/1996	Duc Hue - Long An 6 83
+A83	Dao Thanh Thuy	08/09/1996	Duc Hue - Long An 6 84
+A84	Nguyen Quoc Toan	01/01/1995	Duc Hue - Long An 4.5 85
+A85	Ngo Minh Toan	19/01/1996	Duc Hue - Long An 4.5 86
+A86	Lu Thi Cam Tu	10/11/1996	Duc Hue - Long An 9 87
+A87	Tran Thi Thanh Loan	12/1/1991	Tan Tru - Long An 9.5 88
+A88	Nguyen Van Phu	6/5/1987	Tan Tru - Long An 6.5 89
+A89	Ho Thi Hong Van	23/8/1989	Tan Tru - Long An 9.5 90
+A90	Nguyen Thi Ngoc Bich	12-02-1989	Ben Luc - Long An 9.5 91
+A91	Nguyen Ngoc Cam	21-03-1991	Ben Luc - Long An 9.5 92
+A92	Phan Phu Cuong	08-05-1990	Can Duoc - Long An 93
+A93	Lien Vo Doan 1989 Dong Hai - Bac Lieu 9	94	VN
+A94	Le Thi Bich Gon	19-03-1986	Hoai Nhon - Binh Dinh 7 95
+A95	Pham Thi Kim Lien	23-11-1990	Ben Luc - Long An 9 96
+A96	Vo Thi Tuyet Nga	24-10-1987	Ben Luc - Long An

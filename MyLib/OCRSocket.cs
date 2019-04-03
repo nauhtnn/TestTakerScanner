@@ -67,6 +67,7 @@ namespace MyLib
             JToken parent = JToken.Parse(y).Last;
             while (parent.HasValues && parent.First == parent.Last)
                 parent = parent.First;
+            imgText.Clear();
             TextLineList ocrText = new TextLineList();
             if (parent.HasValues)
             {
@@ -75,8 +76,8 @@ namespace MyLib
                 {
                     var t = i.Value<JArray>("boundingBox");
                     TextRun run = new TextRun();
-                    run.TopLeftY += (int)t[1];
-                    run.BottomLeftY += (int)t[7];
+                    run.TopLeftY = (int)t[1];
+                    run.BottomLeftY = (int)t[7];
                     run.TopLeftX = (int)t[0];
                     run.Value = i.Value<string>("text");
                     ocrText.Add(run);
@@ -85,8 +86,6 @@ namespace MyLib
                 }
                 imgText.Append(ocrText.ToString());
             }
-            else
-                imgText.Append("Running");
         }
 
         /// <summary>
@@ -132,6 +131,7 @@ namespace MyLib
 
     class TextLine : IComparable
     {
+        public static int ImageMiddleY = 0;
         public int TopLeftY, BottomLeftY;
         public ArrayList vText;
         public TextLine()
@@ -141,11 +141,17 @@ namespace MyLib
         }
         public bool IsInlined(TextRun run)
         {
-            int y = (run.TopLeftY + run.BottomLeftY) / 2;
-            if (BottomLeftY <= y && y <= TopLeftY)
-                return true;
+            int y;
+            if (run.TopLeftX < ImageMiddleY)
+                y = run.TopLeftY;
             else
-                return false;
+                y = run.BottomLeftY;
+            if (TopLeftY <= y && y <= BottomLeftY)
+                return true;
+            y = (run.TopLeftY + run.BottomLeftY) / 2;
+            if (TopLeftY <= y && y <= BottomLeftY)
+                return true;
+            return false;
         }
         public void Add(TextRun run)
         {
@@ -156,19 +162,17 @@ namespace MyLib
         public int CompareTo(object obj)
         {
             TextLine line = obj as TextLine;
-            if (TopLeftY < line.BottomLeftY)
+            if (TopLeftY < line.TopLeftY)
                 return -1;
-            else if (line.TopLeftY < BottomLeftY)
-                return 1;
             else
-                throw new NotImplementedException();
+                return 1;
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             foreach (TextRun r in vText)
-                sb.Append(r.Value);
+                sb.Append(r.Value + " ");
             return sb.ToString();
         }
     }

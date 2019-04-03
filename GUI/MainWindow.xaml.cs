@@ -54,7 +54,7 @@ namespace GUI
                 return;
             }
             MyLib.OCRSocket.PostImageToGetURL(filePath.Text);
-            System.Threading.Thread.Sleep(15000);
+            System.Threading.Thread.Sleep(10000);
             GetText_Click(null, null);
         }
 
@@ -63,7 +63,7 @@ namespace GUI
             string text = string.Empty;
             while(text.Length < 20)
             {
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(5000);
                 MyLib.OCRSocket.GetImageText();
                 text = MyLib.PostOCRTextProcessor.ScanText(MyLib.OCRSocket.imgText.ToString()).ToString();
             }
@@ -77,6 +77,32 @@ namespace GUI
             catch(System.IO.IOException ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void PostAll_Click(object sender, RoutedEventArgs e)
+        {
+            if(filePath.Text.Length == 0)
+            {
+                MessageBox.Show("File path is empty");
+                return;
+            }
+            filePath.Text = System.IO.Path.GetDirectoryName(filePath.Text);
+            if(!System.IO.Directory.Exists(filePath.Text))
+            {
+                MessageBox.Show("Folder path doesn't exist");
+                return;
+            }
+            string[] paths = System.IO.Directory.GetFiles(filePath.Text);
+            foreach(string i in paths)
+            {
+                filePath.Text = i;
+                fileName = System.IO.Path.GetFileNameWithoutExtension(i) + ".txt";
+                while (System.IO.File.Exists(fileName))
+                    fileName = fileName + ".txt";
+                MyLib.OCRSocket.PostImageToGetURL(filePath.Text);
+                System.Threading.Thread.Sleep(10000);
+                GetText_Click(null, null);
             }
         }
     }

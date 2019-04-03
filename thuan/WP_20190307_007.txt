@@ -1,0 +1,34 @@
+A185	Thai Ho Thi Thanh Thuy	10/10/1980	Long An 5 100
+A186	Le Thi Diem Trinh	14/08/1994	Tan An-Long An 101
+A187	Truong Dinh Bao	07/02/1990	10 Long An 102
+A188	Pham Tuong 9.5 Duy	10/06/1989	Long An 103
+A189	Huynh Thi Hong Hanh	16/01/1991	Ben Luc-Long An 7.5 104
+A190	Huynh Thi Ngoc Han	18/11/1990	Tra On-Vinh Long 8 105
+A191	Nguyen Trong Hieu	24/09/1987	Tan An-Long An Vang 106
+A192	Nguyen Ngoc Thai Huyen	09/01/1991	Long An 9.5 107
+A193	Chau Thi Yen Huyen	15/05/1990	Chau Thanh-Long An 10 108
+A194	Nguyen Cong Khanh	31/07/1990	Long An 9.5 109
+A195	Le Thi Huynh Lan	11/12/1989	Cho Gao-Tien Giang 9 110
+A196	Bui Thi Yen Linh	20/10/1989	Chau Thanh-Long An 6.5 111
+A197	Phung Ngoc Mai	24/03/1989	Tan An-Long An 8.5 112
+A198	Phan Thi Kim Ngan	31/07/1998	Tan Tru-Long An 9.5 113
+A199	Le Ho Man Nhi	04/11/1994	Long An 9.5 114
+A200	Nguyen Thi Hong Nhung	05/05/1991	Ben Luc-Long An 9 115
+A201	Nguyen Thi Tuyet Nhung	17/01/1991	Tan Tru-Long An 6 116
+A202	Nguyen Thi Huynh Nhu	14/02/1989	Thu Thua-Long An 10 117
+A203	Nguyen Thanh Phuong	06/05/1981	Chau Thanh-Long An Vang 118
+A204	Nguyen Tran Que Phuong	05/01/1989	Tan An-Long An 10 119
+A205	Vo Thi Kim Sang	21/10/1990	Ben Luc-Long An 9.5 120
+A206	Nguyen Le Anh Thi	15/09/1990	Long An 121
+A207	Pham Thi Thanh Thuy	16/10/1991	Thu Thua-Long An 6 122
+A208	Nguyen Thi Tot	11/05/1965	Tan Tru-Long An Vang 123
+A209	Truong Thi Cam Tu	26/02/1991	Chau Thanh-Tien Giang 10 124
+A210	Bui Thi Kim Chau	18/07/1965	Long An 9 125
+A211	Hoang Thi Anh Dao	03/03/1989	Duc Hue - Long An 6 126
+A212	Vo Tan Dat	01/01/1991	Vinh Hung - Long An 9.5 127
+A213	Phan Thi Ngoc Diem	31/05/1991	Cai Be - Tien Giang 5 128
+A214	Nguyen Thi Dieu	06/10/1991	Tan Thanh - Long An 7.5 129
+A215	Nguyen Thi Kim Dung	12/08/1991	TP Ho Chi Minh S 130
+A216	Phan Thi My Duyen	24/06/1991	Can Giuoc - Long An 8.5 131
+A217	Tran Thi Thuy Giang	06/09/1991	Tan Thanh - Long An 4.5 132
+A218	Vo Mai Han	31/10/1990	Duc Hoa - Long An

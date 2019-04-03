@@ -1,0 +1,30 @@
+A1	Thai Ngoc Dang Chau	13/03/1990	Ben Luc - Long An
+A2	Nguyen Thi Hong Cuc	13/10/1988	Ben Luc - Long An 9.5
+A3	Pham Bich Hien	20/06/1985	Moc Hoa - Long An 10
+A4	Nguyen Van Hoa	27/11/1987	Soc Trang 6.5
+A5	Tran Van Khuya	1990	Tan Thanh - Long An
+A6	Le Bui Tuyet Lan	1986	Ben Luc - Long An
+A7	Ho Ai Quoc	30/07/1990	Tan An - Long An 9.5
+A8	Huynh Thi Bao Thi	17/03/1989	Ben Luc - Long An 10
+A9	Vu Xuan Thuy	06/11/1990	Soc Trang 10
+A10	Ngo Thanh Tien 08/01/1987 Ben Luc - Long An
+A11	Phan Thi Bich Tram	05/10/1990	TP Ho Chi Minh 9
+A12	Nguyen Tang Vinh 1990 Duc Hoa - Long An 9.	5	VN
+A13	Nguyen Thi Hong	1/5/1969	Phu Tho 9.5
+A14	Le Thi Hong Loan	22/3/1970	Tan An-Long An 5
+A15	Dinh Thuy Uyen Nghi	30/10/1997	TP Ho Chi Minh 5
+A16	Nguyen Yen Nhi	16/8/1997	Tan An-Long An 8.5
+A17	Nguyen Thi Thanh Tam	1/4/1990	Long An 9.5
+A18	Vo Thi Nhu Thuy	4/3/1985	Tan An-Long An 7
+A19	Vo Le Minh Truc	12/5/1982	Tan An-Long An 6.5
+A20	Vo Thanh Tu	18/4/1983	TP Ho Chi Minh 5.5
+A21	Ho Hoang Vu	1/4/1996	TP Ho Chi Minh 7.5
+A22	Pham Ngoc Cam	15/10/1997	Ben Luc - Long An 9
+A23	Nguyen Thi Thuy Hang	07/04/1997	Ben Luc - Long An 6
+A24	Huynh Trong Hieu	18/08/1997	Ben Luc - Long An 6.5
+A25	Dang Thi Ngoc Lan	26/03/1997	Cang Long - Tra Vinh 8.5
+A26	Nguyen Thi Anh Thu	19/11/1999	TP Ho Chi Minh 7.5
+A27	Nguyen Hoang Lam Thuyen	12/11/1999	TP Ho Chi Minh 6
+A28	Bui Thi Phuong Tram	20/01/1999	Ben Luc - Long An 7
+A29	Bui Thi Le Trinh	08/01/1997	Tan An-Long An 8
+A30	Bui Thi Phuong Trinh	20/01/1999	Ben Luc - Long An

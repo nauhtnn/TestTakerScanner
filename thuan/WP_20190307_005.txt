@@ -1,0 +1,34 @@
+A117	Pham Phan Nhat Giang18/08/1993
+A118	Huynh Nguyen Thuy Hang	05/11/1993	Thai Lan
+A119	Ho Xuan Huy	08/01/1995	Chau Thanh - Long An
+A120	Huynh Thanh Liem	18/04/1995	Chau Thanh - Long An 35
+A121	Tran Thi Huynh Mai	31/05/1997	Long An 36
+A122	Le Hoang Nam	06/09/1997	Long An 37
+A123	To Thi Nga	15/08/1994	38
+A124	Nguyen Thi Kim Ngan	30/10/1995	Tan Tru - Long An 39
+A125	Huynh Thi Hong Ngoan	13/04/1996	Chau Thanh - Long An 40
+A126	Cao Minh Nguyet	17/06/1995	Chau Thanh - Long An 41
+A127	Nguyen Thi Quynh Nhu 02//	06/1996	Tan An - Long An 42
+A128	Nguyen Thi Hong Nhu	21/01/1995	Chau Thanh - Long An 43
+A129	Truong Tuan Sang	27/05/1996	Chau Thanh - Long An 44
+A130	Nguyen Thanh Tai	01/11/1997	Chau Thanh - Long An 9 45
+A131	Tran Canh Tien	17/02/1996	Chau Thanh - Long An 9 46
+A132	Tran Thi Ai Trinh	15/01/1995	Tan An - Long An 9 7
+A133	Tran Thi Thanh Tuyen	13/02/1995	Chau Thanh - Long An 5.5 48
+A134	Huynh Ngoc Le	10/6/1971	Cho Gao-Tien Giang 9 49
+A135	Tran Thuy Linh	28/3/1983	Long An 50
+A136	Nguyen Thi Hong Loan	25/1/1988	Vam Co-Long An 8.5 51
+A137	Phan Thi Truc Ly	16/8/1988	Tan Tru-Long An 6 52
+A138	Ho Van Nho 1956 Tan Tru-Long An 5.5	53	VN
+A139	Le Minh Tan	28/8/1991	Long An 9.5 54
+A140	Nguyen Thi Ngoc Thanh	9/8/1995	Tan Tru-Long An 8.5 55
+A141	Vo Tan Thuong	8/9/1956	Long An 5.5 56
+A142	Dang Thi Thuy Trang	6/6/1987	Vam Co-Long An 9.5 57
+A143	Nguyen Thi Ngoc Anh	19/09/1985	Long An 9 58
+A144	Vo Thi Kim Ngan	09/01/1984	Tan An - Long An 8.5 59
+A145	Cao Nguyen Nhu Ngoc	01/11/1991	Chau Thanh - Long An 7.5 60
+A146	Nguyen Thi Anh Nguyet	03/09/1968	Nong Cong - Thanh Hoa 3.5 61
+A147	Phan Thi Hong	16/09/1990	Khoai Chau - Hung Yen 8 62
+A148	Truong Thi Xuan Hong	16/04/1986	Chau Thanh - Long An 8 63
+A149	Nguyen Thi Thu Huong	15/06/1988	Tan An - Long An 8.5 64
+A150	Tran Vu Hoang	16/08/1991	Tan An - Long An
