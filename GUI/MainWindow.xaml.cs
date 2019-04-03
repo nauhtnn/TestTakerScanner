@@ -26,7 +26,7 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
-            MyLib.Class1.Init();
+            MyLib.OCRSocket.Init();
         }
 
         private void FileOpen_Click(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace GUI
                 MessageBox.Show("Please check the image file path.");
                 return;
             }
-            MyLib.Class1.PostImageToGetURL(filePath.Text);
+            MyLib.OCRSocket.PostImageToGetURL(filePath.Text);
             System.Threading.Thread.Sleep(15000);
             GetText_Click(null, null);
         }
@@ -64,8 +64,8 @@ namespace GUI
             while(text.Length < 20)
             {
                 System.Threading.Thread.Sleep(10000);
-                MyLib.Class1.GetImageText();
-                text = MyLib.Class2.ScanText(MyLib.Class1.imgText.ToString()).ToString();
+                MyLib.OCRSocket.GetImageText();
+                text = MyLib.PostOCRTextProcessor.ScanText(MyLib.OCRSocket.imgText.ToString()).ToString();
             }
             while (System.IO.File.Exists(fileName))
                 fileName = fileName + ".txt";

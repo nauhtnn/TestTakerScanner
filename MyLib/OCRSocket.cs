@@ -8,7 +8,7 @@ using System.Web;
 
 namespace MyLib
 {
-    public class Class1
+    public class OCRSocket
     {
         public static string textURL;
         public static StringBuilder imgText;

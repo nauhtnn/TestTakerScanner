@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace MyLib
 {
-    public class Class2
+    public class PostOCRTextProcessor
     {
         public static StringBuilder ScanText(string s)
         {
