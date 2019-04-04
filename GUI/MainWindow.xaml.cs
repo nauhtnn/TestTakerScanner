@@ -60,16 +60,22 @@ namespace GUI
 
         private void GetText_Click(object sender, RoutedEventArgs e)
         {
+            if (MyLib.OCRSocket.textURL.Length == 0)
+            {
+                MyMessage.Text = MyMessage.Text + "\ntext URL response is null";
+                return;
+            }
             string text = string.Empty;
             while(text.Length < 20)
             {
                 System.Threading.Thread.Sleep(5000);
                 MyLib.OCRSocket.GetImageText();
+                if (MyLib.OCRSocket.imgText.Length == 0)
+                    return;
                 text = MyLib.PostOCRTextProcessor.ScanText(MyLib.OCRSocket.imgText.ToString()).ToString();
             }
             while (System.IO.File.Exists(fileName))
                 fileName = fileName + ".txt";
-            MyMessage.Text = "OK, please check the text file " + fileName;
             try
             {
                 System.IO.File.WriteAllText(fileName, text);
@@ -78,6 +84,7 @@ namespace GUI
             {
                 MessageBox.Show(ex.ToString());
             }
+            MyMessage.Text = MyMessage.Text + "\nOK, please check the text file " + fileName;
         }
 
         private void PostAll_Click(object sender, RoutedEventArgs e)

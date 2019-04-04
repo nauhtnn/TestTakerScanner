@@ -68,7 +68,7 @@ namespace MyLib
             i = 0;
             foreach (string t in residues)
             {
-                if(-1 < vInfo[i].ID_idx)
+                if(-1 < vInfo[i].Birthday_idx)
                 {
                     vInfo[i].Name = t.Substring(0, vInfo[i].Birthday_idx);
                     int birthPlaceX = vInfo[i].Birthday_idx + vInfo[i].Birthday.Length + 1;

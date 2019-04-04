@@ -32,24 +32,43 @@ namespace MyLib
             var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/recognizeText?" + queryString;
             //var uri = "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/ocr?language=en&detectOrientation=false";
 
-            HttpResponseMessage response;
+            HttpResponseMessage response = null;
 
             // Request body
             byte[] byteData = GetImageAsByteArray(imgPath);
 
             textURL = string.Empty;
-
             using (var content = new ByteArrayContent(byteData))
             {
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = client.PostAsync(uri, content).Result;
+                try
+                {
+                    response = client.PostAsync(uri, content).Result;
+                }
+                catch (System.AggregateException er)
+                {
+                    response = null;
+                }
+            }
+
+            if(response == null)
+            {
+                textURL = string.Empty;
+                return;
             }
 
             // Asynchronously get the JSON response.
             string contentString = response.Content.ReadAsStringAsync().Result;
-            var operation_location = response.Headers.GetValues("Operation-Location").GetEnumerator();
-            operation_location.MoveNext();
-            textURL = operation_location.Current;
+            try
+            {
+                var operation_location = response.Headers.GetValues("Operation-Location").GetEnumerator();
+                operation_location.MoveNext();
+                textURL = operation_location.Current;
+            }
+            catch(System.InvalidOperationException e)
+            {
+                textURL = string.Empty;
+            }
         }
 
         public static async void GetImageText()
@@ -61,8 +80,22 @@ namespace MyLib
 
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "26b4d99217f645818a4d2e049f3865fc");
-            var x = client.GetAsync(textURL).Result;
-            var y = x.Content.ReadAsStringAsync().Result;
+            HttpResponseMessage x;
+            try
+            {
+                x = client.GetAsync(textURL).Result;
+            }
+            catch (System.AggregateException er)
+            {
+                x = null;
+            }
+
+            if (x == null)
+            {
+                imgText.Clear();
+                return;
+            }
+            string y = x.Content.ReadAsStringAsync().Result;
             //System.IO.File.WriteAllText("json.txt", y);
             JToken parent = JToken.Parse(y).Last;
             while (parent.HasValues && parent.First == parent.Last)
@@ -72,12 +105,45 @@ namespace MyLib
             if (parent.HasValues)
             {
                 JToken i = parent.First;
+                int maxImageX = 0;
                 while (i != parent.Last)
                 {
                     var t = i.Value<JArray>("boundingBox");
+                    if (maxImageX < (int)t[2])
+                        maxImageX = (int)t[2];
+                    i = i.Next;
+                }
+                TextLine.ImageX4 = maxImageX / 4;
+                i = parent.First;
+                while (i != parent.Last)
+                {
+                    var t = i.Value<JArray>("boundingBox");
+                    if (TextLine.ImageX4 < (int)t[0])
+                    {
+                        i = i.Next;
+                        continue;
+                    }
                     TextRun run = new TextRun();
-                    run.TopLeftY = (int)t[1];
-                    run.BottomLeftY = (int)t[7];
+                    run.TopLeftY = (int)t[3];
+                    run.BottomLeftY = (int)t[5];
+                    run.TopLeftX = (int)t[0];
+                    run.Value = i.Value<string>("text");
+                    ocrText.Add(run);
+                    //imgText.Append(i.Value<string>("text") + "\n");
+                    i = i.Next;
+                }
+                i = parent.First;
+                while (i != parent.Last)
+                {
+                    var t = i.Value<JArray>("boundingBox");
+                    if ((int)t[0] <= TextLine.ImageX4)
+                    {
+                        i = i.Next;
+                        continue;
+                    }
+                    TextRun run = new TextRun();
+                    run.TopLeftY = (int)t[3];
+                    run.BottomLeftY = (int)t[5];
                     run.TopLeftX = (int)t[0];
                     run.Value = i.Value<string>("text");
                     ocrText.Add(run);
@@ -131,7 +197,7 @@ namespace MyLib
 
     class TextLine : IComparable
     {
-        public static int ImageMiddleY = 0;
+        public static int ImageX4 = 0;
         public int TopLeftY, BottomLeftY;
         public ArrayList vText;
         public TextLine()
@@ -141,14 +207,7 @@ namespace MyLib
         }
         public bool IsInlined(TextRun run)
         {
-            int y;
-            if (run.TopLeftX < ImageMiddleY)
-                y = run.TopLeftY;
-            else
-                y = run.BottomLeftY;
-            if (TopLeftY <= y && y <= BottomLeftY)
-                return true;
-            y = (run.TopLeftY + run.BottomLeftY) / 2;
+            int y = (run.TopLeftY + run.BottomLeftY) / 2;
             if (TopLeftY <= y && y <= BottomLeftY)
                 return true;
             return false;
@@ -157,6 +216,9 @@ namespace MyLib
         {
             vText.Add(run);
             vText.Sort();
+            TextRun r = vText[vText.Count - 1] as TextRun;
+            TopLeftY = r.TopLeftY;
+            BottomLeftY = r.BottomLeftY;
         }
 
         public int CompareTo(object obj)
@@ -192,6 +254,8 @@ namespace MyLib
                     line.Add(run);
                     return;
                 }
+            if (TextLine.ImageX4 < run.TopLeftX)
+                return;
             TextLine li = new TextLine();
             li.TopLeftY = run.TopLeftY;
             li.BottomLeftY = run.BottomLeftY;
