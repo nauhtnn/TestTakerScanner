@@ -106,17 +106,16 @@ namespace MyLib
             {
                 JToken i = parent.First;
                 int maxImageX = 0;
-                do
+                while (i != null)
                 {
                     var t = i.Value<JArray>("boundingBox");
                     if (maxImageX < (int)t[2])
                         maxImageX = (int)t[2];
                     i = i.Next;
                 }
-                while (i != parent.Last);
                 TextLine.ImageX4 = maxImageX / 4;
                 i = parent.First;
-                do
+                while (i != null)
                 {
                     var t = i.Value<JArray>("boundingBox");
                     if (TextLine.ImageX4 < (int)t[0])
@@ -127,9 +126,8 @@ namespace MyLib
                     ocrText.Add(new TextRun(t, i.Value<string>("text")));
                     i = i.Next;
                 }
-                while (i != parent.Last);
                 i = parent.First;
-                do
+                while (i != null)
                 {
                     var t = i.Value<JArray>("boundingBox");
                     if ((int)t[0] <= TextLine.ImageX4)
@@ -140,7 +138,6 @@ namespace MyLib
                     ocrText.Add(new TextRun(t, i.Value<string>("text")));
                     i = i.Next;
                 }
-                while (i != parent.Last);
                 imgText.Append(ocrText.ToString());
             }
         }

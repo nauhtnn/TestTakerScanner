@@ -12,7 +12,8 @@ namespace MyLib
         {
             if (s.Length < 20)
                 return new StringBuilder();
-            s = FixOCRConfusing1L(s);
+            s = FixOCRConfusing1L(s, "A[0-9l]+");
+            s = FixOCRConfusing1L(s, "B[0-9l]+");
 
             // Define a regular expression for repeated words.
             Regex rx = new Regex("[AB][0-9]+");
@@ -92,10 +93,10 @@ namespace MyLib
             return sb;
         }
 
-        static string FixOCRConfusing1L(string s)
+        static string FixOCRConfusing1L(string s, string pattern)
         {
             // Define a regular expression for repeated words.
-            Regex rx = new Regex("A[0-9l]+");
+            Regex rx = new Regex(pattern);
 
             // Find matches.
             var matches = rx.Matches(s);
