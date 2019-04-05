@@ -12,6 +12,8 @@ namespace MyLib
         {
             if (s.Length < 20)
                 return new StringBuilder();
+            s = FixOCRConfusing1L(s);
+
             // Define a regular expression for repeated words.
             Regex rx = new Regex("[AB][0-9]+");
 
@@ -45,23 +47,19 @@ namespace MyLib
             {
                 SearchDate("[0-9]+-[0-9]+-[0-9]+", t, ref vInfo[i]);
                 if(vInfo[i].Birthday_idx < 0)
-                    SearchDate("[0-9]+/[0-9]+/[0-9]+", t, ref vInfo[i]);
-                if (vInfo[i].Birthday_idx < 0)
-                    SearchDate("[0-9]+-[0-9]+", t, ref vInfo[i]);
-                if (vInfo[i].Birthday_idx < 0)
-                    SearchDate("[0-9]+/[0-9]+", t, ref vInfo[i]);
-                if (vInfo[i].Birthday_idx < 0)
                 {
-                    SearchDate("[0-9]+", t, ref vInfo[i]);
-                    int year = int.Parse(vInfo[i].Birthday);
-                    if (1950 < year && year < 2012)
+                    SearchDate("[0-9]+/[0-9]+/[0-9]+", t, ref vInfo[i]);
+                    if (vInfo[i].Birthday_idx < 0)
                     {
-                        vInfo[i] = new TTInfo();
-                        vInfo[i].Birthday = year.ToString();
+                        SearchDate("[0-9]+-[0-9]+", t, ref vInfo[i]);
+                        if (vInfo[i].Birthday_idx < 0)
+                        {
+                            SearchDate("[0-9]+/[0-9]+", t, ref vInfo[i]);
+                            if (vInfo[i].Birthday_idx < 0)
+                                SearchDate("[0-9]+", t, ref vInfo[i]);
+                        }
                     }
                 }
-                //if (vInfo[i].Birthday_idx < 0)
-                //    throw new NotSupportedException();
                 ++i;
             }
 
@@ -74,6 +72,10 @@ namespace MyLib
                     int birthPlaceX = vInfo[i].Birthday_idx + vInfo[i].Birthday.Length + 1;
                     if(birthPlaceX < t.Length)
                         vInfo[i].Birthplace = t.Substring(birthPlaceX);
+                }
+                else
+                {
+                    vInfo[i].Name = t;
                 }
                 ++i;
             }
@@ -90,17 +92,39 @@ namespace MyLib
             return sb;
         }
 
+        static string FixOCRConfusing1L(string s)
+        {
+            // Define a regular expression for repeated words.
+            Regex rx = new Regex("A[0-9l]+");
+
+            // Find matches.
+            var matches = rx.Matches(s);
+
+            // Report
+            int start = 0;
+            StringBuilder sb = new StringBuilder();
+            foreach(Match match in matches)
+            {
+                GroupCollection groups = match.Groups;
+                sb.Append(s.Substring(start, groups[0].Index - start));//assume not substring(0, 0)
+                start = groups[0].Index + groups[0].Value.Length;
+                sb.Append(groups[0].Value.Replace('l', '1'));
+            }
+            if (start < s.Length)
+                sb.Append(s.Substring(start));
+            return sb.ToString();
+        }
+
         static void SearchDate(string patt, string s, ref TTInfo info)
         {
             // Define a regular expression for repeated words.
             Regex rx = new Regex(patt);
 
             // Find matches.
-            MatchCollection matches = rx.Matches(s);
+            var match = rx.Match(s);
 
-            // Report on each match.
-            StringBuilder sb = new StringBuilder();
-            foreach (Match match in matches)
+            // Report
+            if(match.Success)
             {
                 GroupCollection groups = match.Groups;
                 info.Birthday = groups[0].Value;

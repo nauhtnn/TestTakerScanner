@@ -106,16 +106,17 @@ namespace MyLib
             {
                 JToken i = parent.First;
                 int maxImageX = 0;
-                while (i != parent.Last)
+                do
                 {
                     var t = i.Value<JArray>("boundingBox");
                     if (maxImageX < (int)t[2])
                         maxImageX = (int)t[2];
                     i = i.Next;
                 }
+                while (i != parent.Last);
                 TextLine.ImageX4 = maxImageX / 4;
                 i = parent.First;
-                while (i != parent.Last)
+                do
                 {
                     var t = i.Value<JArray>("boundingBox");
                     if (TextLine.ImageX4 < (int)t[0])
@@ -123,17 +124,12 @@ namespace MyLib
                         i = i.Next;
                         continue;
                     }
-                    TextRun run = new TextRun();
-                    run.TopLeftY = (int)t[3];
-                    run.BottomLeftY = (int)t[5];
-                    run.TopLeftX = (int)t[0];
-                    run.Value = i.Value<string>("text");
-                    ocrText.Add(run);
-                    //imgText.Append(i.Value<string>("text") + "\n");
+                    ocrText.Add(new TextRun(t, i.Value<string>("text")));
                     i = i.Next;
                 }
+                while (i != parent.Last);
                 i = parent.First;
-                while (i != parent.Last)
+                do
                 {
                     var t = i.Value<JArray>("boundingBox");
                     if ((int)t[0] <= TextLine.ImageX4)
@@ -141,15 +137,10 @@ namespace MyLib
                         i = i.Next;
                         continue;
                     }
-                    TextRun run = new TextRun();
-                    run.TopLeftY = (int)t[3];
-                    run.BottomLeftY = (int)t[5];
-                    run.TopLeftX = (int)t[0];
-                    run.Value = i.Value<string>("text");
-                    ocrText.Add(run);
-                    //imgText.Append(i.Value<string>("text") + "\n");
+                    ocrText.Add(new TextRun(t, i.Value<string>("text")));
                     i = i.Next;
                 }
+                while (i != parent.Last);
                 imgText.Append(ocrText.ToString());
             }
         }
@@ -174,13 +165,17 @@ namespace MyLib
 
     class TextRun : IComparable
     {
-        public int TopLeftX, TopLeftY, BottomLeftY;
+        public int TopLeftX, TopLeftY, BottomLeftY, TopRightY, BottomRightY;
         public string Value;
 
-        public TextRun()
+        public TextRun(JArray box, string text)
         {
-            TopLeftX = TopLeftY = BottomLeftY = 0;
-            Value = string.Empty;
+            TopLeftX = (int)box[0];
+            TopLeftY = (int)box[1];
+            TopRightY = (int)box[3];
+            BottomRightY = (int)box[5];
+            BottomLeftY = (int)box[7];
+            Value = text;
         }
 
         public int CompareTo(object obj)
@@ -198,17 +193,17 @@ namespace MyLib
     class TextLine : IComparable
     {
         public static int ImageX4 = 0;
-        public int TopLeftY, BottomLeftY;
+        public int TopRightY, BottomRightY;
         public ArrayList vText;
         public TextLine()
         {
-            TopLeftY = BottomLeftY = 0;
+            TopRightY = BottomRightY = 0;
             vText = new ArrayList();
         }
         public bool IsInlined(TextRun run)
         {
             int y = (run.TopLeftY + run.BottomLeftY) / 2;
-            if (TopLeftY <= y && y <= BottomLeftY)
+            if (TopRightY <= y && y <= BottomRightY)
                 return true;
             return false;
         }
@@ -217,14 +212,14 @@ namespace MyLib
             vText.Add(run);
             vText.Sort();
             TextRun r = vText[vText.Count - 1] as TextRun;
-            TopLeftY = r.TopLeftY;
-            BottomLeftY = r.BottomLeftY;
+            TopRightY = r.TopRightY;
+            BottomRightY = r.BottomRightY;
         }
 
         public int CompareTo(object obj)
         {
             TextLine line = obj as TextLine;
-            if (TopLeftY < line.TopLeftY)
+            if (TopRightY < line.TopRightY)
                 return -1;
             else
                 return 1;
@@ -248,6 +243,8 @@ namespace MyLib
         }
         public void Add(TextRun run)
         {
+            if (run.BottomLeftY - run.TopLeftY < 10)//remove noise
+                return;
             foreach (TextLine line in vLine)
                 if (line.IsInlined(run))
                 {
@@ -257,8 +254,6 @@ namespace MyLib
             if (TextLine.ImageX4 < run.TopLeftX)
                 return;
             TextLine li = new TextLine();
-            li.TopLeftY = run.TopLeftY;
-            li.BottomLeftY = run.BottomLeftY;
             li.Add(run);
             vLine.Add(li);
             vLine.Sort();
