@@ -7,6 +7,7 @@ using System.Text;
 using System.Net.Http;
 using System.Web;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace MyLib
 {
@@ -241,7 +242,11 @@ namespace MyLib
         public void Add(TextRun run)
         {
             if (run.BottomLeftY - run.TopLeftY < 10)//remove noise
-                return;
+            {
+                Regex rx = new Regex("[AB][0-9]+");
+                if(!rx.IsMatch(run.Value))
+                    return;
+            }
             foreach (TextLine line in vLine)
                 if (line.IsInlined(run))
                 {

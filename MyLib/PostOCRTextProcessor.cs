@@ -21,6 +21,9 @@ namespace MyLib
             // Find matches.
             MatchCollection matches = rx.Matches(s);
 
+            if(matches.Count == 0)
+                return new StringBuilder("No match found.");
+
             // Report on each match.
             TTInfo[] vInfo = new TTInfo[matches.Count];
             int i = 0;
