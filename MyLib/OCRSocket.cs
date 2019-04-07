@@ -115,29 +115,18 @@ namespace MyLib
                     i = i.Next;
                 }
                 TextLine.ImageX4 = maxImageX / 4;
-                i = parent.First;
-                while (i != null)
+                int[] vStart = { 0, TextLine.ImageX4 };
+                int[] vEnd = { TextLine.ImageX4, TextLine.ImageX4 * 3};
+                for(int j = 0; j < vStart.Length; ++j)
                 {
-                    var t = i.Value<JArray>("boundingBox");
-                    if (TextLine.ImageX4 < (int)t[0])
+                    i = parent.First;
+                    while (i != null)
                     {
+                        var t = i.Value<JArray>("boundingBox");
+                        if (vStart[j] <= (int)t[0] && (int)t[0] <= vEnd[j])
+                            ocrText.Add(new TextRun(t, i.Value<string>("text")));
                         i = i.Next;
-                        continue;
                     }
-                    ocrText.Add(new TextRun(t, i.Value<string>("text")));
-                    i = i.Next;
-                }
-                i = parent.First;
-                while (i != null)
-                {
-                    var t = i.Value<JArray>("boundingBox");
-                    if ((int)t[0] <= TextLine.ImageX4)
-                    {
-                        i = i.Next;
-                        continue;
-                    }
-                    ocrText.Add(new TextRun(t, i.Value<string>("text")));
-                    i = i.Next;
                 }
                 imgText.Append(ocrText.ToString());
             }
@@ -163,7 +152,7 @@ namespace MyLib
 
     class TextRun : IComparable
     {
-        public int TopLeftX, TopLeftY, BottomLeftY, TopRightY, BottomRightY;
+        public int TopLeftX, TopLeftY, BottomLeftY, TopRightY, BottomRightY, TopRightX;
         public string Value;
 
         public TextRun(JArray box, string text)
@@ -173,6 +162,7 @@ namespace MyLib
             TopRightY = (int)box[3];
             BottomRightY = (int)box[5];
             BottomLeftY = (int)box[7];
+            TopRightX = (int)box[2];
             Value = text;
         }
 
@@ -191,19 +181,35 @@ namespace MyLib
     class TextLine : IComparable
     {
         public static int ImageX4 = 0;
-        public int TopRightY, BottomRightY;
+        public int TopRightY, BottomRightY, TopLeftY, BottomLeftY;
+        public int TopRightX;
         public ArrayList vText;
         public TextLine()
         {
-            TopRightY = BottomRightY = 0;
+            TopRightY = BottomRightY = TopLeftY = BottomLeftY = TopRightX = 0;
             vText = new ArrayList();
         }
-        public bool IsInlined(TextRun run)
+        public int TestInlined(TextRun run)
         {
-            int y = (run.TopLeftY + run.BottomLeftY) / 2;
-            if (TopRightY <= y && y <= BottomRightY)
-                return true;
-            return false;
+            int ry, topY, bottomY;
+            if(TopRightX < run.TopLeftX)
+            {
+                ry = (run.TopLeftY + run.BottomLeftY) / 2;
+                topY = TopRightY;
+                bottomY = BottomRightY;
+            }
+            else
+            {
+                ry = (run.TopRightY + run.BottomRightY) / 2;
+                topY = TopLeftY;
+                bottomY = BottomLeftY;
+            }
+            if (ry < topY)
+                return -1;
+            else if (bottomY < ry)
+                return 1;
+            else
+                return 0;
         }
         public void Add(TextRun run)
         {
@@ -212,6 +218,10 @@ namespace MyLib
             TextRun r = vText[vText.Count - 1] as TextRun;
             TopRightY = r.TopRightY;
             BottomRightY = r.BottomRightY;
+            TopRightX = r.TopRightX;
+            r = vText[0] as TextRun;
+            TopLeftY = r.TopLeftY;
+            BottomLeftY = r.BottomLeftY;
         }
 
         public int CompareTo(object obj)
@@ -247,12 +257,23 @@ namespace MyLib
                 if(!rx.IsMatch(run.Value))
                     return;
             }
-            foreach (TextLine line in vLine)
-                if (line.IsInlined(run))
+            int start = 0, end = vLine.Count - 1;
+            while(start <= end)
+            {
+                int middle = (start + end) / 2;
+                int testInlined = (vLine[middle] as TextLine).TestInlined(run);
+                if (testInlined == 0)
                 {
-                    line.Add(run);
+                    (vLine[middle] as TextLine).Add(run);
+                    vLine.Sort();
                     return;
                 }
+                if (testInlined < 0)
+                    end = middle - 1;
+                else
+                    start = middle + 1;
+            }
+
             if (TextLine.ImageX4 < run.TopLeftX)
                 return;
             TextLine li = new TextLine();
